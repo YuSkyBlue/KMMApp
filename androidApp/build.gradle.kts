@@ -8,11 +8,11 @@ plugins {
 
 android {
     namespace = "com.bluesky.kmmapp.android"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         applicationId = "com.bluesky.kmmapp.android"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }
@@ -54,6 +54,7 @@ dependencies {
     implementation(Deps.coilCompose)
 
     implementation(Deps.hiltAndroid)
+    implementation("androidx.compose.ui:ui-android:1.5.4")
     kapt(Deps.hiltAndroidCompiler)
     kapt(Deps.hiltCompiler)
     implementation(Deps.hiltNavigationCompose)
@@ -67,4 +68,12 @@ dependencies {
 
     kaptAndroidTest(Deps.hiltAndroidCompiler)
     androidTestImplementation(Deps.hiltTesting)
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
 }
