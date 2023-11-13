@@ -11,15 +11,15 @@ import shared
 
 struct LanguageDropDown: View {
     var language: UiLanguage
-    var isOpen : Bool
-    var selectLanguage : (UiLanguage) -> Void
+    var isOpen: Bool
+    var selectLanguage: (UiLanguage) -> Void
     
     var body: some View {
         Menu {
-            VStack{
-                ForEach(UiLanguage.Companion().allLanguages, id : \.language.langCode){ language in
+            VStack {
+                ForEach(UiLanguage.Companion().allLanguages, id: \.self.language.langCode) { language in
                     LanguageDropDownItem(
-                        language : language,
+                        language: language,
                         onClick: {
                             selectLanguage(language)
                         }
@@ -33,7 +33,6 @@ struct LanguageDropDown: View {
                     .foregroundColor(.lightBlue)
                 Image(systemName: isOpen ? "chevron.up" : "chevron.down")
                     .foregroundColor(.lightBlue)
-                
             }
         }
     }
@@ -44,8 +43,7 @@ struct LanguageDropDown_Previews: PreviewProvider {
         LanguageDropDown(
             language: UiLanguage(language: .german, imageName: "german"),
             isOpen: true,
-            selectLanguage: {language in}
-          
+            selectLanguage: { language in }
         )
     }
 }
