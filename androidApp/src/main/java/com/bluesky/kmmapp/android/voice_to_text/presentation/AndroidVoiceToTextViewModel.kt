@@ -9,7 +9,7 @@ import com.bluesky.kmmapp.voice_to_text.presentation.VoiceToTextEvent
 import com.bluesky.kmmapp.voice_to_text.presentation.VoiceToTextViewModel
 
 @HiltViewModel
-class AndroidVoiceToTextParser @Inject constructor(
+class AndroidVoiceToTextViewModel @Inject constructor(
     private val parser: VoiceToTextParser
 ): ViewModel() {
 
